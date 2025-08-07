@@ -44,7 +44,7 @@ h1 {
     display: flex;
 }
 
-.recommend_side_content {
+/* .recommend_side_content {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -57,10 +57,38 @@ h1 {
     opacity: 30%;
     border: none;
     color: #fff;
-    /* filter: blur(100px); */
+    /* filter: blur(100px);
     width: 300px;
     height: 60px;
     border-radius: 50px;
+ }  */
+
+.recommend_side_content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.tab-button {
+  width: 455px;
+  height: 87px;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  border: none;
+  border-radius: 50px;
+
+  background: rgba(0, 0, 0, 0.3); /* 반투명 검정 */
+  backdrop-filter: blur(10px);   /* 배경 블러 효과 */
+  -webkit-backdrop-filter: blur(10px); /* Safari 지원 */
+  
+  cursor: pointer;
+}
+
+.tab-button:hover {
+  background: rgba(0, 0, 0, 0.5); /* hover 시 더 어두운 효과 */
 }
 
 /* top_container */
