@@ -16,19 +16,11 @@
             <h1>
                 <img src="./image/logo.svg" alt="">
             </h1>
-            <div class="main_text_content">
-                <p>
-                    instantly,
-                </p>
-                <p>
-                    smartly,
-                </p>
-                <p>
-                    effortlessly,
-                </p>
-                <p>
-                    Find popups
-                </p>
+            <div class="main_text_content" id="main_text_content">
+                <div class="text_line word" id="line1"></div>
+                <div class="text_line word" id="line2"></div>
+                <div class="text_line word" id="line3"></div>
+                <div class="text_line word" id="line4"></div>
             </div>
         </div>
     </section>
@@ -36,12 +28,12 @@
     <section class="recommend_container">
         <div class="recommend_content">
             <div class="recommend_side_content">
-                <button class="tab-button" data-tab="fashion">Fashion</button>
+                <button class="tab-button active" data-tab="fashion">Fashion</button>
                 <button class="tab-button" data-tab="dessert">Dessert</button>
                 <button class="tab-button" data-tab="experience">Experience</button>
             </div>
             <div class="recommend_main_content">
-                <div class="content_box">
+                <div class="content_box active" id="fashion">
                     <h2>Fashion</h2>
                     <div class="scroll_wrapper">
                         <div class="card f1">
@@ -88,7 +80,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="content_box">
+                <div class="content_box" id="dessert">
                     <h2>Dessert</h2>
                     <div class="scroll_wrapper">
                         <div class="card d1">
@@ -135,7 +127,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="content_box">
+                <div class="content_box" id="experience">
                     <h2>Experience</h2>
                     <div class="scroll_wrapper">
                         <div class="card e1">
@@ -181,7 +173,7 @@
                             <img src="./image/experience3.png" alt="">
                         </div>
                     </div>
-                </div> -->
+                </div>
             </div>
         </div>
     </section>
@@ -244,9 +236,9 @@
     <section class="new_container">
         <h2>New Picks</h2>
         <div class="new_img_box">
-            <figure class="new1"></figure>
-            <figure class="new2"></figure>
-            <figure class="new3"></figure>
+            <img src="./image/new1.png" class="new1 shake-img">
+            <img src="./image/new2.png" class="new2 shake-img">
+            <img src="./image/new3.png" class="new3 shake-img">
         </div>
         <div class="new_text_content">
             See
@@ -309,6 +301,11 @@
             </p>
         </div>
     </footer>
+    
+    <script src="./script/mainText.js"></script>
+    <script src="./script/tabMenu.js"></script>
+    <script src="./script/imageShake.js"></script>
+    <script src="./script/location.js"></script>
 </body>
 
 </html>

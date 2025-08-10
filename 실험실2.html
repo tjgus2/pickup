@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .new_container {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            padding: 100px;
+            box-sizing: border-box;
+        }
+
+        .new_container>h2 {
+            font-size: 64px;
+            font-weight: 800;
+            margin-bottom: 32px;
+        }
+
+        .new_img_box {
+            z-index: 1;
+        }
+
+        .shake-img {
+            transition: transform 0.1s ease-out;
+        }
+
+        .new1 {
+            background: url(../image/new1.png);
+            width: 330px;
+            height: 160px;
+            right: 600px;
+            top: 200px;
+            position: absolute;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .new2 {
+            background: url(../image/new2.png);
+            width: 400px;
+            height: 430px;
+            left: 360px;
+            bottom: 140px;
+            position: absolute;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .new3 {
+            background: url(../image/new3.png);
+            width: 320px;
+            height: 260px;
+            right: 500px;
+            bottom: 80px;
+            position: absolute;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .new_text_content {
+            font-size: 84px;
+            font-weight: 600;
+            color: #676767;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -30%);
+            line-height: 1.4;
+            z-index: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="new_container">
+        <h2>New Picks</h2>
+        <div class="new_img_box">
+            <figure class="new1 shake-img"></figure>
+            <figure class="new2 shake-img"></figure>
+            <figure class="new3 shake-img"></figure>
+        </div>
+        <div class="new_text_content">
+            See
+            <br>
+            what's new
+            <br>
+            in the art
+            <br>
+            scene this
+            <br>
+            week
+        </div>
+    </section>
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const images = document.querySelectorAll(".shake-img");
+
+            images.forEach(img => {
+                const speed = 20;
+                const x = (window.innerWidth / 2 - e.clientX) / speed;
+                const y = (window.innerHeight / 2 - e.clientY) / speed;
+
+                img.style.transform = `translate(${x}px, ${y}px)`;
+            })
+        })
+
+    </script>
+</body>
+
+</html>
