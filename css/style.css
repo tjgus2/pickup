@@ -18,7 +18,7 @@ h1 {
     font-size: 80px;
     font-weight: 600;
     padding-top: 4%;
-    padding-left: 10%;
+    padding-left: 14%;
 }
 
 .word {
@@ -48,6 +48,7 @@ h1 {
     color: #fff;
     display: flex;
     gap: 80px;
+    width: 100%;
 }
 
 .recommend_side_content {
@@ -80,7 +81,8 @@ h1 {
 .content_box {
     display: none;
     flex-direction: column;
-    gap: 150px;
+    gap: 60px;
+    width: 76%;
 }
 
 .content_box.active {
@@ -93,13 +95,16 @@ h1 {
 }
 
 .scroll_wrapper {
+    overflow-x: scroll;
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 32px;
+    width: 78%;
+    padding-bottom: 36px;
 }
 
 .card {
-    width: 436px;
+    width: 336px;
     height: 443px;
     border-radius: 50px;
     background: rgba(255, 255, 255, 0.3);
@@ -144,14 +149,9 @@ h1 {
 }
 
 .top_content {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    grid-template-rows: 420px 260px;
-    grid-gap: 20px;
-    grid-template-areas:
-        "first second third_top"
-        "fifth  fifth  fifth";
-    color: white;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 .blg_black_num {
@@ -162,29 +162,41 @@ h1 {
 
 .first_box {
     background: url(../image/top1.png);
-    grid-area: first;
+    width: 620px;
+    height: 500px;
+    background-size: cover;
 }
 
 .second_box {
     background: url(../image/top2.png);
-    grid-area: second;
+    background-size: cover;
+}
+
+.third_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .third_top_box {
     background: url(../image/top3.png);
-    grid-area: third_top;
     border-top-right-radius: 80px;
+    background-size: cover;
+    height: 200px;
 }
 
 .third_bottom_box {
     background: url(../image/top4.png);
-    grid-area: third_bottom;
+    background-size: cover;
+    height: 280px;
 }
 
 .fifth_box {
     background: url(../image/top5.png);
-    grid-area: fifth;
     border-radius: 0 0 0 120px;
+    background-size: cover;
+    background-position: center;
+    height: 220px;
 }
 
 /* new_container */
@@ -215,13 +227,14 @@ h1 {
 }
 
 .new1 {
-    top: -60px;
+    top: -80px;
     right: 400px;
 }
 
 .new2 {
-    top: 50px;
-    left: 150px;
+    width: 450px;
+    top: 100px;
+    left: 210px;
 }
 
 .new3 {
@@ -239,7 +252,7 @@ h1 {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -30%);
+    transform: translate(-50%, -50%);
     line-height: 1.2;
     z-index: 1;
 }
@@ -310,18 +323,26 @@ h1 {
 /* footer */
 footer {
     background: url(../image/footer.png);
-    height: 530px;
+    height: 400px;
     padding: 80px;
     color: #fff;
     box-sizing: border-box;
 }
 
+.logo {
+    width: 300px;
+}
+
+.logo > img {
+    width: 100%;
+}
+
 .tel {
-    margin-top: 100px;
-    margin-bottom: 64px;
+    margin-top: 40px;
+    margin-bottom: 30px;
 }
 
 .tel>p,
 .service>p {
-    font-size: 24px;
+    font-size: 16px;
 }

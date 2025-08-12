@@ -1,163 +1,171 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>스타벅스 지점검색</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>탭 콘텐츠 가로 스크롤</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        .map_section {
-            display: flex;
-            background-color: rgb(42, 82, 42);
-            height: 100vh;
-            justify-content: center;
-            align-items: center;
-            gap: 60px;
-            color: #fff;
-        }
+    body {
+      font-family: sans-serif;
+      height: 100vh;
+      overflow: hidden;
+    }
 
-        .left>p {
-            font-size: 24px;
-        }
+    .container {
+      display: flex;
+      height: 100vh;
+    }
 
-        .left>h1 {
-            font-size: 60px;
-            margin: 0;
-        }
+    .sidebar {
+      width: 200px;
+      background-color: #f5f5f5;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border-right: 1px solid #ccc;
+    }
 
-        .right {
-            width: 300px;
-        }
+    .sidebar button {
+      padding: 12px 16px;
+      font-size: 16px;
+      background-color: white;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
 
-        .right>h2 {
-            font-size: 32px;
-            margin: 0;
-        }
+    .sidebar button.active {
+      background-color: #222;
+      color: white;
+      font-weight: bold;
+    }
 
-        .search_icon {
-            width: 40px;
-            height: 40px;
-        }
+    .content {
+      flex: 1;
+      padding: 30px;
+      overflow: hidden;
+    }
 
-        .input,
-        .search_icon {
-            margin: 0;
-            padding: 0;
-            border: none;
-            outline: none;
-            background: none;
-            color: #fff;
-            font-size: 20px;
-        }
+    .content-area {
+      display: none;
+      height: 100%;
+      flex-direction: column;
+    }
 
-        .input_box {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #fff;
-            padding: 4px 16px;
-            width: 100%;
-            margin-top: 32px;
-            border-radius: 8px;
-        }
+    .content-area.active {
+      display: flex;
+    }
 
-        .map {
-            border-radius: 16px;
-        }
+    .scroll-wrapper {
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      padding-bottom: 10px;
+      border-top: 1px solid #ddd;
+    }
 
-        .input::placeholder {
-            color: #fff;
-        }
-    </style>
+    .card {
+      display: inline-block;
+      width: 220px;
+      height: 280px;
+      margin: 20px 10px 0 0;
+      background-color: #eee;
+      border-radius: 10px;
+      flex-shrink: 0;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* 스크롤바 스타일 */
+    .scroll-wrapper::-webkit-scrollbar {
+      height: 8px;
+    }
+    .scroll-wrapper::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 4px;
+    }
+    .scroll-wrapper::-webkit-scrollbar-track {
+      background: transparent;
+    }
+  </style>
 </head>
-
 <body>
-    <section class="map_section">
-        <div class="left">
-            <p>반짝반짝 빛나는 커피 드실텨?</p>
-            <h1>Starbucks place</h1>
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.593505689179!2d126.99811961537216!3d37.53915253430483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357cbdf1a5ab6237%3A0x64b6113a5401c0c5!2z66eI7J207Zi47Iqk66ek!5e0!3m2!1sko!2skr!4v1696750981452!5m2!1sko!2skr"
-                width="100%" height="450" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-
+  <div class="container">
+    <div class="sidebar">
+      <button class="tab-button active" data-tab="fashion">Fashion</button>
+      <button class="tab-button" data-tab="dessert">Dessert</button>
+      <button class="tab-button" data-tab="experience">Experience</button>
+    </div>
+    <div class="content">
+      <div id="fashion" class="content-area active">
+        <h2>Fashion Popups</h2>
+        <div class="scroll-wrapper">
+          <div class="card">Fashion 1</div>
+          <div class="card">Fashion 2</div>
+          <div class="card">Fashion 3</div>
+          <div class="card">Fashion 4</div>
+          <div class="card">Fashion 5</div>
+          <div class="card">Fashion 6</div>
+          <div class="card">Fashion 7</div>
+          <div class="card">Fashion 8</div>
+          <div class="card">Fashion 9</div>
+          <div class="card">Fashion 10</div>
         </div>
-        <div class="right">
-            <h2>지점찾기</h2>
-            <div class="input_box">
-                <input id="input_text" class="input" type="text" placeholder="지역을 입력하세요">
-                <button class="search_icon">
-                    <img src="./Group 30.png" alt="지점검색버튼">
-                    <!-- alt 쓰는 이유: 접근성을 높이는 방법 -->
-                    <!-- 접근성: 시각장애인 또는 고령층 등 모든 사람이 웹을 사용하는데 불편함이 없도록 웹을 설계하는 것을 말함 -->
-                </button>
-            </div>
+      </div>
+      <div id="dessert" class="content-area">
+        <h2>Dessert Popups</h2>
+        <div class="scroll-wrapper">
+          <div class="card">Dessert 1</div>
+          <div class="card">Dessert 2</div>
+          <div class="card">Dessert 3</div>
+          <div class="card">Dessert 4</div>
+          <div class="card">Dessert 5</div>
+          <div class="card">Dessert 6</div>
+          <div class="card">Dessert 7</div>
+          <div class="card">Dessert 8</div>
+          <div class="card">Dessert 9</div>
+          <div class="card">Dessert 10</div>
         </div>
-    </section>
-    <script>
-        /*
-        1. input_text 가져오기
-        2. search_icon 가져오기
-        3. search_icon 을 비활성화 해놓기 disabled 속성을 활용
-        4. 시각적으로 비활성화 된 것이 보이게 search_icon의 스타일을 opacity 0.5로 변경해줌
-        */
+      </div>
+      <div id="experience" class="content-area">
+        <h2>Experience Popups</h2>
+        <div class="scroll-wrapper">
+          <div class="card">Experience 1</div>
+          <div class="card">Experience 2</div>
+          <div class="card">Experience 3</div>
+          <div class="card">Experience 4</div>
+          <div class="card">Experience 5</div>
+          <div class="card">Experience 6</div>
+          <div class="card">Experience 7</div>
+          <div class="card">Experience 8</div>
+          <div class="card">Experience 9</div>
+          <div class="card">Experience 10</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        const inputText = document.getElementById("input_text");
-        const btn = document.querySelector(".search_icon");
-        btn.disabled = true;
-        // 처음엔 비활성화
-        // disabled: 따로 만든 변수 X -> html요소의 속성(button / input 등)에 기본적으로 존재하는 속성
-        btn.style.opacity = 0.3
+  <script>
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const contentAreas = document.querySelectorAll('.content-area');
 
-        inputText.addEventListener("input", () => {
-            // addEventListener("input"): 글자를 입력 / 글자를 지우거나 복사하거나 붙여넣기 하거나 자동완성하거나 등등
-            if (inputText.value.trim() !== "") {
-                // input에 어떤 값이 들어와야 작동함
-                // trim: " " <- 눈에 보이진 않지만 공백이 존재함(값은 있다라는 것)
-                // trim: 입력한 문자의 공백을 제거 "  강남  " -> "강남"
-                // 즉 정말 텍스트가 존재하는지 확인하는 메소드
-                // inputText.value: 사용자가 입력한 값
-                // 사용자가 입력한 값이 ""과 달라서 비어있지 않다면! 아래 코드를 실행하겠다
-                btn.disabled = false;
-                // input에 어떤 값이 들어왔ㅅ다면 disbled을 끈다
-                btn.style.opacity = 1;
-            } else {
-                // 만약 사용자가 입력한 값이 빈값이라면
-                btn.disabled = true;
-                btn.style.opacity = 0.3;
-                // 그대로 비활성화 유지
-            }
-        });
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const tab = button.getAttribute('data-tab');
 
-        // 언제 검색이 되어야할까?
-        // 1. 검색버튼을 클릭했을 때 사용자가 inputText에 입력한 value값이 비어있지 않다면 input() 실행행
-        btn.addEventListener("click", () => {
-            if (inputText.value.trim() !== "") {
-                input();
-            }
-        });
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        contentAreas.forEach(area => area.classList.remove('active'));
 
-        window.addEventListener("keyup", (e) => {
-            if (e.key == "Enter" && document.activeElement == inputText && inputText.value.trim() !== "") {
-                // e.key == "Enter": 이벤트가 발생한 키가 Enter이고
-                // activeElement: 현재 사용자가 클릭했거나 커서가 깜빡이는 html 요소를 가리킴
-                input();
-            }
-        });
-
-
-        function input() {
-            const query = encodeURIComponent("스타벅스 " + inputText.value.trim());
-            // encodeURIComponent: 주소창에 특수문자나 한글을 그대로 입력할 수 없기 때문에 웹 주소에 맞게 인코딩 해주는 메소드
-            window.open("https://www.google.co.kr/maps/search/" + query + "/data=!3m1!4b1");
-        }
-    </script>
+        button.classList.add('active');
+        document.getElementById(tab).classList.add('active');
+      });
+    });
+  </script>
 </body>
-
 </html>
