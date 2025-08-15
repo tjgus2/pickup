@@ -1,171 +1,169 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>탭 콘텐츠 가로 스크롤</title>
   <style>
-    * {
+    .top_container {
+      width: 1200px;
+      height: 100vh;
+      margin: 120px auto;
+    }
+
+    .top_container>h2 {
+      font-size: 64px;
+      font-weight: 800;
+      margin-bottom: 32px;
+    }
+
+    .top_content {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .first_box {
+      background: url(../image/top1.png);
+      width: 580px;
+      height: 500px;
+      background-size: cover;
+      padding: 24px;
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
-    body {
-      font-family: sans-serif;
-      height: 100vh;
-      overflow: hidden;
+    .second_box {
+      background: url(../image/top2.png);
+      background-size: cover;
+      padding: 16px;
+      box-sizing: border-box;
     }
 
-    .container {
-      display: flex;
-      height: 100vh;
-    }
-
-    .sidebar {
-      width: 200px;
-      background-color: #f5f5f5;
-      padding: 20px;
+    .third_box {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      border-right: 1px solid #ccc;
+      justify-content: space-between;
     }
 
-    .sidebar button {
-      padding: 12px 16px;
-      font-size: 16px;
-      background-color: white;
-      border: 1px solid #ccc;
-      cursor: pointer;
+    .third_top_box {
+      background: url(../image/top3.png);
+      border-top-right-radius: 80px;
+      background-size: cover;
+      height: 200px;
+      padding: 16px;
+      box-sizing: border-box;
     }
 
-    .sidebar button.active {
-      background-color: #222;
-      color: white;
-      font-weight: bold;
-    }
-
-    .content {
-      flex: 1;
-      padding: 30px;
-      overflow: hidden;
-    }
-
-    .content-area {
-      display: none;
-      height: 100%;
-      flex-direction: column;
-    }
-
-    .content-area.active {
-      display: flex;
-    }
-
-    .scroll-wrapper {
-      overflow-x: auto;
-      overflow-y: hidden;
-      white-space: nowrap;
-      padding-bottom: 10px;
-      border-top: 1px solid #ddd;
-    }
-
-    .card {
-      display: inline-block;
-      width: 220px;
+    .third_bottom_box {
+      background: url(../image/top4.png);
+      background-size: cover;
       height: 280px;
-      margin: 20px 10px 0 0;
-      background-color: #eee;
-      border-radius: 10px;
-      flex-shrink: 0;
-      text-align: center;
-      padding: 20px;
+      padding: 16px;
+      box-sizing: border-box;
     }
 
-    /* 스크롤바 스타일 */
-    .scroll-wrapper::-webkit-scrollbar {
-      height: 8px;
+    .fifth_box {
+      background: url(../image/top5.png);
+      border-radius: 0 0 0 120px;
+      background-size: cover;
+      background-position: center;
+      height: 220px;
+      padding: 24px;
+      box-sizing: border-box;
     }
-    .scroll-wrapper::-webkit-scrollbar-thumb {
-      background: #ccc;
-      border-radius: 4px;
+
+    .big_common_h3 {
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 16px;
     }
-    .scroll-wrapper::-webkit-scrollbar-track {
-      background: transparent;
+
+    .common_h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .big_common_h3,
+    .common_h3 {
+      color: #3A3A3A;
+    }
+
+    .big_common_p {
+      font-size: 20px;
+    }
+
+    .top_content>div,
+    .top_content>div>div,
+    .bottom_content>div {
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: all 0.7s ease;
+    }
+
+    .top_container:hover>.top_content>div:not(:hover),
+    .top_container:hover>.top_content>div>div:not(:hover),
+    .top_container:hover>.bottom_content>div:not(:hover) {
+      filter: brightness(0.7);
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <div class="sidebar">
-      <button class="tab-button active" data-tab="fashion">Fashion</button>
-      <button class="tab-button" data-tab="dessert">Dessert</button>
-      <button class="tab-button" data-tab="experience">Experience</button>
-    </div>
-    <div class="content">
-      <div id="fashion" class="content-area active">
-        <h2>Fashion Popups</h2>
-        <div class="scroll-wrapper">
-          <div class="card">Fashion 1</div>
-          <div class="card">Fashion 2</div>
-          <div class="card">Fashion 3</div>
-          <div class="card">Fashion 4</div>
-          <div class="card">Fashion 5</div>
-          <div class="card">Fashion 6</div>
-          <div class="card">Fashion 7</div>
-          <div class="card">Fashion 8</div>
-          <div class="card">Fashion 9</div>
-          <div class="card">Fashion 10</div>
-        </div>
+  <section class="top_container">
+    <h2>Top Picks</h2>
+    <div class="top_content">
+      <div class="first_box">
+        <h3 class="big_common_h3">
+          한강뷰 속 와인 한 잔, 핑크문 팝업
+        </h3>
+        <p class="big_common_p">
+          성수에서 펼쳐지는 와인&뷰티 감성 라운지
+        </p>
       </div>
-      <div id="dessert" class="content-area">
-        <h2>Dessert Popups</h2>
-        <div class="scroll-wrapper">
-          <div class="card">Dessert 1</div>
-          <div class="card">Dessert 2</div>
-          <div class="card">Dessert 3</div>
-          <div class="card">Dessert 4</div>
-          <div class="card">Dessert 5</div>
-          <div class="card">Dessert 6</div>
-          <div class="card">Dessert 7</div>
-          <div class="card">Dessert 8</div>
-          <div class="card">Dessert 9</div>
-          <div class="card">Dessert 10</div>
-        </div>
+      <div class="second_box">
+        <h3 class="common_h3">
+          팝업에서 만나는 일본 골목식당
+        </h3>
+        <p>
+          연남동 작은 거리, 오사카가 되다
+        </p>
       </div>
-      <div id="experience" class="content-area">
-        <h2>Experience Popups</h2>
-        <div class="scroll-wrapper">
-          <div class="card">Experience 1</div>
-          <div class="card">Experience 2</div>
-          <div class="card">Experience 3</div>
-          <div class="card">Experience 4</div>
-          <div class="card">Experience 5</div>
-          <div class="card">Experience 6</div>
-          <div class="card">Experience 7</div>
-          <div class="card">Experience 8</div>
-          <div class="card">Experience 9</div>
-          <div class="card">Experience 10</div>
+      <div class="third_box">
+        <div class="third_top_box">
+          <h3 class="common_h3">
+            파도 위를 걷는 듯, 서핑 팝업
+          </h3>
+          <p>
+            청담 한복판에 떠오른 서퍼들의 아지트
+          </p>
+
+        </div>
+        <div class="third_bottom_box">
+          <h3 class="common_h3">
+            지구를 위한 한 끼, 푸드 팝업
+          </h3>
+          <p>
+            제로웨이스트 푸드 브랜드들의 한정 전시
+          </p>
         </div>
       </div>
     </div>
-  </div>
+    <div class="bottom_content">
+      <div class="fifth_box">
+        <h3 class="big_common_h3">
+          향기로 기록하는 나만의 취향
+        </h3>
+        <p class="big_common_p">
+          니치향수 브랜드의 체험형 전시 팝업
+        </p>
 
-  <script>
-    const tabButtons = document.querySelectorAll('.tab-button');
-    const contentAreas = document.querySelectorAll('.content-area');
+      </div>
+    </div>
+  </section>
 
-    tabButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const tab = button.getAttribute('data-tab');
 
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        contentAreas.forEach(area => area.classList.remove('active'));
-
-        button.classList.add('active');
-        document.getElementById(tab).classList.add('active');
-      });
-    });
-  </script>
 </body>
+
 </html>
