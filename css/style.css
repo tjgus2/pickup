@@ -1,3 +1,7 @@
+body {
+    font-family: "Crimson Text", serif;
+}
+
 /* main_container */
 .main_container {
     background-image: url(../image/main.svg);
@@ -120,7 +124,7 @@ h1 {
 .card_text_box>h3 {
     margin-left: 16px;
     margin-bottom: 24px;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 500;
 }
 
@@ -177,7 +181,7 @@ h1 {
 
 .third_top_box {
     background: url(../image/top3.png);
-    border-top-right-radius: 80px;
+    border-radius: 0 80px 0 0;
     background-size: cover;
     height: 200px;
     padding: 16px;
@@ -194,7 +198,7 @@ h1 {
 
 .fifth_box {
     background: url(../image/top5.png);
-    border-radius: 0 0 0 120px;
+    border-radius: 0 0 0 80px;
     background-size: cover;
     background-position: center;
     height: 220px;

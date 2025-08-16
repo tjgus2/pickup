@@ -26,18 +26,18 @@
     }
 
     /* top 컨테이너 */
-    .top_container>h2 {
-        font-size: 40px;
-        margin-bottom: 20px;
-    }
-
     .top_container {
         width: 1000px;
         margin: 100px auto;
     }
 
+    .top_container>h2 {
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+
     .top_content {
-        margin-bottom: 24px;
+        margin-bottom: 10px;
     }
 
     .first_box {
@@ -142,7 +142,7 @@
         height: 180px;
     }
 
-    .first_box, 
+    .first_box,
     .fifth_box {
         padding: 16px;
     }
@@ -181,8 +181,8 @@
 
     .new2 {
         width: 250px;
-        top: 268px;
-        left: 50px;
+        top: 220px;
+        left: 30px;
     }
 
     .new3 {
@@ -242,4 +242,119 @@
     }
 }
 
-@media (max-width: 700px) {}
+@media (max-width: 700px) {
+
+    /* top 컨테이너 */
+    .top_container {
+        width: 360px;
+        height: auto;
+        margin: 60px auto;
+    }
+
+    .top_content {
+        flex-wrap: wrap;
+        margin-bottom: 0;
+    }
+
+    .first_box,
+    .second_box {
+        width: 170px;
+        height: 180px;
+        margin-bottom: 16px;
+    }
+
+    .third_box {
+        flex-direction: row;
+        width: 360px;
+        height: 180px;
+        margin-bottom: 16px;
+    }
+
+    .third_top_box {
+        width: 170px;
+        height: 180px;
+        border-radius: 0;
+    }
+
+    .third_bottom_box {
+        width: 170px;
+    }
+
+    .fifth_box {
+        height: 160px;
+    }
+
+    .big_common_h3,
+    .common_h3 {
+        font-size: 16px;
+        color: #fff;
+        font-weight: 400;
+    }
+
+    .big_common_p,
+    .common_p {
+        display: none;
+    }
+
+    /* new 컨테이너 */
+    .new_container {
+        max-width: 360px;
+        height: 500px;
+    }
+
+    .new_text_content {
+        font-size: 28px;
+    }
+
+    .new1 {
+        top: 30px;
+        right: 32px;
+        width: 150px;
+    }
+
+    .new2 {
+        width: 120px;
+        top: 140px;
+        left: 28px;
+    }
+
+    .new3 {
+        width: 130px;
+        right: 25px;
+        top: 256px;
+    }
+
+    /* location 컨테이너 */
+    .location_container {
+        padding: 48px 0;
+    }
+
+    .location_full_content {
+        max-width: 360px;
+    }
+
+    .right_content>iframe {
+        height: 200px;
+    }
+
+    /* footer */
+    footer {
+        height: 230px;
+        padding: 40px;
+    }
+
+    .logo {
+        width: 140px;
+    }
+
+    .tel {
+        margin-top: 24px;
+        margin-bottom: 16px;
+    }
+
+    .tel>p,
+    .service>p {
+        font-size: 12px;
+    }
+
+}
