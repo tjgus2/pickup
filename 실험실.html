@@ -1,169 +1,140 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>탭 콘텐츠 가로 스크롤</title>
+  <title>Document</title>
   <style>
-    .top_container {
-      width: 1200px;
-      height: 100vh;
-      margin: 120px auto;
+    /* location_container */
+    .location_container {
+      background-color:
+        #3A3A3A;
+      padding: 100px 0;
+      box-sizing: border-box;
     }
 
-    .top_container>h2 {
+    .location_full_content {
+      width: 1200px;
+      margin: 0 auto
+    }
+
+    .location_full_content>h2 {
       font-size: 64px;
       font-weight: 800;
       margin-bottom: 32px;
+      color: #fff;
     }
 
-    .top_content {
+    .loction_content {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 20px;
     }
 
-    .first_box {
-      background: url(../image/top1.png);
-      width: 580px;
-      height: 500px;
-      background-size: cover;
-      padding: 24px;
-      box-sizing: border-box;
+    .left_content {
+      width: 45%;
     }
 
-    .second_box {
-      background: url(../image/top2.png);
-      background-size: cover;
-      padding: 16px;
-      box-sizing: border-box;
+    .right_content {
+      width: 45%;
     }
 
-    .third_box {
+    .input_box {
+      border: 2px solid #B7B7B7;
+      border-radius: 50px;
+      padding: 8px;
+      width: 100%;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      align-items: center;
       justify-content: space-between;
-    }
-
-    .third_top_box {
-      background: url(../image/top3.png);
-      border-top-right-radius: 80px;
-      background-size: cover;
-      height: 200px;
-      padding: 16px;
+      margin-bottom: 28px;
       box-sizing: border-box;
     }
 
-    .third_bottom_box {
-      background: url(../image/top4.png);
-      background-size: cover;
-      height: 280px;
-      padding: 16px;
-      box-sizing: border-box;
+    .input {
+      font-size: 20px;
+      line-height: 1.4;
     }
 
-    .fifth_box {
-      background: url(../image/top5.png);
-      border-radius: 0 0 0 120px;
-      background-size: cover;
-      background-position: center;
-      height: 220px;
-      padding: 24px;
-      box-sizing: border-box;
+    .input,
+    .search_icon {
+      border: none;
+      background: none;
     }
 
-    .big_common_h3 {
-      font-size: 32px;
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
-
-    .common_h3 {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
-
-    .big_common_h3,
-    .common_h3 {
-      color: #3A3A3A;
-    }
-
-    .big_common_p {
+    .input::placeholder {
       font-size: 20px;
     }
 
-    .top_content>div,
-    .top_content>div>div,
-    .bottom_content>div {
-      background-repeat: no-repeat;
-      background-position: center;
-      transition: all 0.7s ease;
+    .top_img_box {
+      margin-bottom: 40px;
     }
 
-    .top_container:hover>.top_content>div:not(:hover),
-    .top_container:hover>.top_content>div>div:not(:hover),
-    .top_container:hover>.bottom_content>div:not(:hover) {
-      filter: brightness(0.7);
+    .top_img_box>img {
+      width: 100%;
+    }
+
+    .bottom_box>p {
+      color: #fff;
+      font-size: 26px;
+      font-weight: 600;
+      margin-bottom: 28px;
+    }
+
+    .bottom_img_box {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .bottom_img_box>img {
+      width: 250px;
+    }
+
+    .right_content>iframe {
+      width: 100%;
+      height: 100%;
+      border-radius: 24px;
     }
   </style>
 </head>
 
 <body>
-  <section class="top_container">
-    <h2>Top Picks</h2>
-    <div class="top_content">
-      <div class="first_box">
-        <h3 class="big_common_h3">
-          한강뷰 속 와인 한 잔, 핑크문 팝업
-        </h3>
-        <p class="big_common_p">
-          성수에서 펼쳐지는 와인&뷰티 감성 라운지
-        </p>
-      </div>
-      <div class="second_box">
-        <h3 class="common_h3">
-          팝업에서 만나는 일본 골목식당
-        </h3>
-        <p>
-          연남동 작은 거리, 오사카가 되다
-        </p>
-      </div>
-      <div class="third_box">
-        <div class="third_top_box">
-          <h3 class="common_h3">
-            파도 위를 걷는 듯, 서핑 팝업
-          </h3>
-          <p>
-            청담 한복판에 떠오른 서퍼들의 아지트
-          </p>
-
+  <section class="location_container">
+    <div class="location_full_content">
+      <h2>Around Me</h2>
+      <div class="loction_content">
+        <div class="left_content">
+          <div class="top_box">
+            <div class="input_box">
+              <input id="input_text" class="input" type="text" placeholder="Find a Place">
+              <button class="search_icon">
+                <img src="./image/search_icon.png" alt="지점검색버튼">
+              </button>
+            </div>
+            <div class="top_img_box">
+              <img src="./image/around1.png" alt="">
+            </div>
+          </div>
+          <div class="bottom_box">
+            <p>How abount this place?</p>
+            <div class="bottom_img_box">
+              <img src="./image/around2.png" alt="">
+              <img src="./image/around3.png" alt="">
+            </div>
+          </div>
         </div>
-        <div class="third_bottom_box">
-          <h3 class="common_h3">
-            지구를 위한 한 끼, 푸드 팝업
-          </h3>
-          <p>
-            제로웨이스트 푸드 브랜드들의 한정 전시
-          </p>
+        <div class="right_content">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.728474903633!2d126.99681877642932!3d37.53789742576892!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca31be3dcde53%3A0xfbec8b809878a1bb!2z66as7JuA66-47Iig6rSA!5e0!3m2!1sko!2skr!4v1754975558075!5m2!1sko!2skr"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-      </div>
-    </div>
-    <div class="bottom_content">
-      <div class="fifth_box">
-        <h3 class="big_common_h3">
-          향기로 기록하는 나만의 취향
-        </h3>
-        <p class="big_common_p">
-          니치향수 브랜드의 체험형 전시 팝업
-        </p>
-
       </div>
     </div>
   </section>
-
-
 </body>
 
 </html>
