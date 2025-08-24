@@ -27,9 +27,9 @@ h1 {
 }
 
 .main_text_content {
-    color: #B7B7B7;
+    color: #262626;
     font-size: 80px;
-    font-weight: 600;
+    font-weight: 700;
     padding-top: 4%;
     padding-left: 14%;
 }
@@ -400,7 +400,7 @@ h1 {
 
 /* footer */
 footer {
-    background: url(../image/footer.png);
+    background: url(../image/footer.svg);
     height: 400px;
     padding: 80px;
     color: #fff;
@@ -422,5 +422,5 @@ footer {
 
 .tel>p,
 .service>p {
-    font-size: 16px;
+    font-size: 18px;
 }
