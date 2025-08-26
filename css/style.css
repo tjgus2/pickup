@@ -17,6 +17,7 @@ body {
     z-index: -1;
     right: 0;
     background-size: cover;
+    background-position: 50%;
 }
 
 .main_content {
