@@ -2,7 +2,7 @@
 
     /* main 컨테이너 */
     .main_container {
-        height: auto;
+        height: 100vh;
     }
 
     h1>img {

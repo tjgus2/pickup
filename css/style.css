@@ -10,12 +10,13 @@ body {
 }
 
 .main_img {
-    background-image: url(../image/main.svg);
-    width: 100%;
+    background-image: url(../image/main_img.png);
+    width: 70%;
     height: 100vh;
     position: absolute;
     z-index: -1;
-    background-size: 100%;
+    right: 0;
+    background-size: cover;
 }
 
 .main_content {
