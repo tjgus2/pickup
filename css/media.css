@@ -15,7 +15,7 @@
 
     /* recommend 컨테이너 */
     .tab-button {
-        width: 300px;
+        width: 260px;
         height: 60px;
         padding: 20px 16px;
         font-size: 20px;
@@ -23,6 +23,11 @@
 
     .content_box>h2 {
         font-size: 40px;
+    }
+
+    .card {
+        width: 280px;
+        height: 420px;
     }
 
     /* top 컨테이너 */
@@ -119,6 +124,25 @@
 
     .main_text_content {
         font-size: 42px;
+    }
+
+    /* recommend 컨테이너 */
+    .recommend_content {
+        gap: 24px;
+        padding: 120px 0 0 40px;
+    }
+
+    .content_box {
+        gap: 42px;
+    }
+
+    .scroll_wrapper {
+        gap: 24px;
+    }
+
+    .card {
+        width: 270px;
+        height: 400px;
     }
     
     /* top 컨테이너 */
@@ -261,6 +285,60 @@
 
     .main_text_content {
         font-size: 24px;
+    }
+
+    /* recommend 컨테이너 */
+    .recommend_container {
+        height: auto;
+    }
+
+    .recommend_side_content {
+        position: sticky;
+        top: 0;
+        gap: 60px;
+    }
+
+    .recommend_content {
+        gap: 16px;
+        padding: 70px 0 0 16px;
+    }
+
+    .tab-button {
+        width: 100px;
+        height: 40px;
+        padding: 4px;
+        font-size: 14px;
+    }
+
+    .content_box {
+        gap: 16px;
+    }
+
+    .content_box>h2 {
+        font-size: 32px;
+    }
+
+    .scroll_wrapper {
+        flex-direction: column;
+        width: 100%;
+        gap: 14px;
+    }
+    
+    .card {
+        width: 160px;
+        height: 200px;
+        border-radius: 24px;
+        padding: 10px 16px;
+    }
+
+    .card_text_box > p {
+        display: none;
+    }
+
+    .card_text_box>h3 {
+        margin-left: 4px;
+        margin-bottom: 0px;
+        font-size: 20px;
     }
 
     /* top 컨테이너 */
