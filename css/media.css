@@ -33,7 +33,6 @@
     /* top 컨테이너 */
     .top_container {
         width: 1000px;
-        margin: 100px auto;
     }
 
     .top_container>h2 {
@@ -46,7 +45,7 @@
     }
 
     .first_box {
-        width: 400px;
+        width: 380px;
     }
 
     .big_common_h3 {
@@ -56,7 +55,6 @@
     /* new 컨테이너 */
     .new_container {
         max-width: 1000px;
-        margin: 100px auto;
     }
 
     .new_container>h2 {
@@ -144,12 +142,11 @@
         width: 270px;
         height: 400px;
     }
-    
+
     /* top 컨테이너 */
     .top_container {
         width: 700px;
         height: auto;
-        margin: 80px auto;
     }
 
     .top_container>h2 {
@@ -169,6 +166,7 @@
 
     .third_top_box {
         height: 200px;
+        border-radius: 0 50px 0 0;
     }
 
     .third_bottom_box {
@@ -178,6 +176,10 @@
     .first_box,
     .fifth_box {
         padding: 16px;
+    }
+
+    .fifth_box {
+        border-radius: 0 0 0 50px;
     }
 
     .big_common_h3,
@@ -194,7 +196,6 @@
     /* new 컨테이너 */
     .new_container {
         max-width: 700px;
-        margin: 60px auto;
         height: 700px;
     }
 
@@ -281,64 +282,37 @@
     h1>img {
         width: 150px;
     }
-    /* 메인이미지 */
 
     .main_text_content {
         font-size: 24px;
     }
 
     /* recommend 컨테이너 */
-    .recommend_container {
-        height: auto;
-    }
-
-    .recommend_side_content {
-        position: sticky;
-        top: 0;
-        gap: 60px;
-    }
-
-    .recommend_content {
-        gap: 16px;
-        padding: 70px 0 0 16px;
+    .content_box>h2 {
+        font-size: 36px;
     }
 
     .tab-button {
-        width: 100px;
-        height: 40px;
-        padding: 4px;
-        font-size: 14px;
-    }
-
-    .content_box {
-        gap: 16px;
-    }
-
-    .content_box>h2 {
-        font-size: 32px;
-    }
-
-    .scroll_wrapper {
-        flex-direction: column;
-        width: 100%;
-        gap: 14px;
-    }
-    
-    .card {
         width: 160px;
-        height: 200px;
-        border-radius: 24px;
-        padding: 10px 16px;
+        height: 50px;
+        padding: 8px;
+        font-size: 16px;
     }
 
-    .card_text_box > p {
-        display: none;
+    .card {
+        width: 200px;
+        height: 300px;
     }
 
     .card_text_box>h3 {
         margin-left: 4px;
         margin-bottom: 0px;
         font-size: 20px;
+        line-height: 28px;
+    }
+
+    .card_text_box>p {
+        display: none;
     }
 
     /* top 컨테이너 */
@@ -361,6 +335,10 @@
         margin-bottom: 16px;
     }
 
+    .second_box {
+        border-radius: 0 30px 0 0;
+    }
+
     .third_box {
         flex-direction: row;
         width: 360px;
@@ -380,6 +358,7 @@
 
     .fifth_box {
         height: 160px;
+        border-radius: 0 0 0 30px;
     }
 
     .big_common_h3,
@@ -432,6 +411,19 @@
         max-width: 360px;
     }
 
+    .input_box {
+        padding: 4px;
+    }
+
+    .input::placeholder {
+        font-size: 16px;
+    }
+
+    .search_icon>img {
+        width: 24px;
+        height: auto;
+    }
+
     .right_content>iframe {
         height: 200px;
     }
@@ -454,6 +446,59 @@
     .tel>p,
     .service>p {
         font-size: 12px;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    /* recommend 컨테이너 */
+    .recommend_container {
+        height: auto;
+    }
+
+    .recommend_side_content {
+        position: sticky;
+        top: 0;
+        gap: 60px;
+    }
+
+    .recommend_content {
+        gap: 16px;
+        padding: 70px 0 0 16px;
+    }
+
+    .tab-button {
+        width: 100px;
+        height: 40px;
+        padding: 4px;
+        font-size: 14px;
+    }
+
+    .content_box {
+        gap: 16px;
+    }
+
+    .content_box>h2 {
+        font-size: 26px;
+    }
+
+    .scroll_wrapper {
+        flex-direction: column;
+        width: 100%;
+        gap: 14px;
+    }
+
+    .card {
+        width: 160px;
+        height: 200px;
+        border-radius: 24px;
+        padding: 10px 16px;
+    }
+
+    .card_text_box>h3 {
+        font-size: 16px;
+        line-height: 22px;
     }
 
 }

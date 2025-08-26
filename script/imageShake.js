@@ -1,5 +1,5 @@
 document.addEventListener('mousemove', (e) => {
-    const images = document.querySelectorAll(".shake-im");
+    const images = document.querySelectorAll(".shake-img");
     
     images.forEach(img => {
         const speed = 10;
