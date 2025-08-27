@@ -2,6 +2,52 @@ body {
     font-family: "Crimson Text", serif;
 }
 
+/* slide */
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+}
+
+.slide {
+    width: 70%;
+    height: 100vh;
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    background-size: cover;
+    background-position: 50%;
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+.active {
+    opacity: 1;
+}
+
+.slide1 {
+    background-image: url(../image/main_img1.png);
+}
+
+.slide2 {
+    background: url(../image/main_img2.png);
+}
+
+.slide3 {
+    background: url(../image/main_img3.png);
+}
+
+.slide4 {
+    background: url(../image/main_img4.png);
+}
+
+.slide5 {
+    background: url(../image/main_img5.png);
+}
+
 /* main_container */
 .main_container {
     position: relative;
@@ -29,7 +75,7 @@ h1 {
 }
 
 .main_text_content {
-    color: #262626;
+    color: #4e4e4e;
     font-size: 80px;
     font-weight: 700;
     padding-top: 4%;
@@ -105,7 +151,7 @@ h1 {
     flex-direction: column;
     gap: 60px;
     overflow: hidden;
-    word-break: keep-all; 
+    word-break: keep-all;
 }
 
 .content_box.active {
