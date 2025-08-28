@@ -1,7 +1,7 @@
-document.addEventListener("wheel", function (event) {
-    event.preventDefault();
-    window.scrollBy({
-        top: event.deltaY * 0.5
+// document.addEventListener("wheel", function (event) {
+//     event.preventDefault();
+//     window.scrollBy({
+//         top: event.deltaY
 
-    });
-}, { passive: false });
+//     });
+// }, { passive: false });

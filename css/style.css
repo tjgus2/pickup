@@ -18,10 +18,10 @@ body {
     position: absolute;
     z-index: -1;
     right: 0;
-    background-size: cover;
-    background-position: 50%;
     opacity: 0;
     transition: opacity 2s;
+    background-size: cover;
+    background-position: 50%;
 }
 
 .active {
@@ -209,6 +209,8 @@ h1 {
     margin: 120px auto;
     color: #fff;
     padding: 0 16px;
+    font-family: 'NanumSquareNeo', sans-serif;
+    word-break: keep-all;
 }
 
 .top_container>h2 {
@@ -216,13 +218,13 @@ h1 {
     font-weight: 800;
     margin-bottom: 32px;
     color: #000;
+    font-family: "Crimson Text", serif;
 }
 
 .top_content {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
-    font-family: 'NanumSquareNeo', sans-serif;
 }
 
 .first_box {
@@ -418,6 +420,8 @@ h1 {
 .search_icon {
     border: none;
     background: none;
+    outline: none;
+    color: #b7b7b7;
 }
 
 .input::placeholder {
@@ -463,6 +467,7 @@ footer {
     padding: 80px;
     color: #fff;
     box-sizing: border-box;
+    font-family: 'NanumSquareNeo', sans-serif;
 }
 
 .logo {
