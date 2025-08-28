@@ -187,11 +187,13 @@
     .common_h3 {
         font-size: 18px;
         margin-bottom: 12px;
+        line-height: 22px;
     }
 
     .big_common_p,
     .common_p {
         font-size: 14px;
+        line-height: 16px;
     }
 
     /* new 컨테이너 */
@@ -369,6 +371,7 @@
     .big_common_h3,
     .common_h3 {
         font-size: 16px;
+        line-height: 18px;
         color: #fff;
         font-weight: 400;
     }
