@@ -6,153 +6,463 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>스타벅스 지점검색</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
+        .no {
+            height: 200vh;
         }
-
-        .map_section {
-            display: flex;
-            background-color: rgb(42, 82, 42);
-            height: 100vh;
-            justify-content: center;
-            align-items: center;
-            gap: 60px;
-            color: #fff;
-        }
-
-        .left > p {
-            font-size: 24px;
-        }
-
-        .left > h1 {
-            font-size: 60px;
-            margin: 0;
-        }
-
-        .right {
-            width: 300px;
-        }
-
-        .right > h2 {
-            font-size: 32px;
-            margin: 0;
-        }
-
-        .search_icon {
-            width: 40px;
-            height: 40px;
-        }
-
-        .input,
-        .search_icon {
-            margin: 0;
-            padding: 0;
-            border: none;
-            outline: none;
-            background: none;
-            color: #fff;
-            font-size: 20px;
-        }
-
-        .input_box {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #fff;
-            padding: 4px 16px;
+        .recommend_container {
+            background-image: url(../image/recommend.svg);
             width: 100%;
-            margin-top: 32px;
-            border-radius: 8px;
+            height: 100%;
+            background-position: 50%;
+            background-size: cover;
+            overflow: hidden;
         }
 
-        .map {
-            border-radius: 16px;
+        .recommend_main_content {
+            overflow: hidden;
         }
 
-        .input::placeholder {
+        .recommend_content {
+            padding: 150px 0 0 100px;
             color: #fff;
+            display: flex;
+            gap: 80px;
+            width: 100%;
         }
 
+        .recommend_side_content {
+            display: flex;
+            flex-direction: column;
+            gap: 86px;
+            align-items: flex-start;
+            font-family: 'NanumSquareNeo', sans-serif;
+        }
+
+        .tab-button {
+            width: 400px;
+            height: 80px;
+            padding: 24px 16px;
+            font-size: 24px;
+            font-weight: 400;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .tab-button.active {
+            background: rgba(255, 255, 255, 0.3);
+            border: 1px solid #fff;
+        }
+
+        .content_box {
+            display: none;
+            flex-direction: column;
+            gap: 60px;
+            overflow: hidden;
+            word-break: keep-all;
+        }
+
+        .content_box.active {
+            display: flex;
+        }
+
+        .content_box>h2 {
+            font-size: 64px;
+            font-weight: 600;
+        }
+
+        .scroll_wrapper {
+            overflow-x: scroll;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            width: 78%;
+            padding-bottom: 36px;
+            font-family: 'NanumSquareNeo', sans-serif;
+            cursor: grab;
+            /* 기본 커서 */
+        }
+
+        .scroll_wrapper:active {
+            cursor: grabbing;
+            /* 드래그 중 커서 */
+        }
+
+
+        .scroll_wrapper::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .scroll_wrapper::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+
+        .scroll_wrapper::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        .scroll_wrapper::-webkit-scrollbar-track {
+            background: #e0e0e0;
+            border-radius: 10px;
+        }
+
+        .card {
+            width: 330px;
+            height: 443px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 12px 24px;
+            color: #fff;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+        .card_text_box>h3 {
+            margin-left: 16px;
+            margin-bottom: 24px;
+            font-size: 22px;
+            font-weight: 500;
+        }
+
+        .card_text_box>p {
+            margin-left: 16px;
+        }
+
+        .card_text_box>p:first-of-type {
+            margin-bottom: 10px;
+        }
+
+        .content_box {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .content_box.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 
 <body>
-    <section class="map_section">
-        <div class="left">
-            <p>반짝반짝 빛나는 커피 드실텨?</p>
-            <h1>Starbucks place</h1>
-            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3167.6994897358272!2d126.7021835!3d37.44420330000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b7bd0a12a4cf7%3A0xc55f4697555b19d5!2z7Iqk7YOA67KF7IqkIOq1rOyblOuhnOuNsOyYpOygkA!5e0!3m2!1sko!2skr!4v1748228852160!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-        <div class="right">
-            <h2>지점찾기</h2>
-            <div class="input_box">
-                <input id="input_text" class="input" type="text" placeholder="지역을 입력하세요">
-                <button class="search_icon">
-                    <img src="./Group 30.png" alt="지점검색버튼">
-                    <!-- alt 쓰는 이유: 접근성을 높이는 방법 -->
-                    <!-- 접근성: 시각장애인 또는 고령층 등 모든 사람이 웹을 사용하는데 불편함이 없도록 웹을 설계하는 것을 말함 -->
-                </button>
+    <section class="no">
+        dlkjflskjdflksdjlfkjdslkf
+    </section>
+    <section class="recommend_container">
+        <div class="recommend_content">
+            <div class="recommend_side_content">
+                <button class="tab-button active" data-tab="fashion">Fashion</button>
+                <button class="tab-button" data-tab="dessert">Dessert</button>
+                <button class="tab-button" data-tab="experience">Experience</button>
+            </div>
+            <div class="recommend_main_content">
+                <div class="content_box active" id="fashion">
+                    <h2>Fashion</h2>
+                    <div class="scroll_wrapper">
+                        <div class="card f1">
+                            <div class="card_text_box">
+                                <h3>
+                                    AVANDRESS
+                                </h3>
+                                <p>
+                                    롯데백화점 광주점 4층
+                                </p>
+                                <p>
+                                    7월 15일(화) ~ 7월 31일(목)
+                                </p>
+                            </div>
+                            <img src="./image/fashion1.png" alt="">
+                        </div>
+                        <div class="card f2">
+                            <div class="card_text_box">
+                                <h3>
+                                    RAWROW
+                                </h3>
+                                <p>
+                                    롯데백화점 에비뉴엘 잠실점
+                                </p>
+                                <p>
+                                    7월 11일(금) ~ 7월 31일(목)
+                                </p>
+                            </div>
+                            <img src="./image/fashion2.png" alt="">
+                        </div>
+                        <div class="card f3">
+                            <div class="card_text_box">
+                                <h3>
+                                    리얼리굿스윔 x RGS 팝업스토어
+                                </h3>
+                                <p>
+                                    서울 성동구 성수동 LCDC 3층 A3-01호 광주점 4층
+                                </p>
+                                <p>
+                                    7월 19일(토) ~ 7월 27일(일)
+                                </p>
+                            </div>
+                            <img src="./image/fashion3.png" alt="">
+                        </div>
+                        <div class="card f4">
+                            <div class="card_text_box">
+                                <h3>
+                                    EMIS PET
+                                </h3>
+                                <p>
+                                    신세계백화점 본점
+                                </p>
+                                <p>
+                                    8월 1일(금) ~ 8월 8일(금)
+                                </p>
+                            </div>
+                            <img src="./image/fashion4.png" alt="">
+                        </div>
+                        <div class="card f5">
+                            <div class="card_text_box">
+                                <h3>
+                                    HUNTER
+                                </h3>
+                                <p>
+                                    롯데백화점 인천점
+                                </p>
+                                <p>
+                                    7월 19일(토) ~ 8월 1일(금)
+                                </p>
+                            </div>
+                            <img src="./image/fashion5.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="content_box" id="dessert">
+                    <h2>Dessert</h2>
+                    <div class="scroll_wrapper">
+                        <div class="card d1">
+                            <div class="card_text_box">
+                                <h3>
+                                    코코로카라
+                                </h3>
+                                <p>
+                                    아이파크몰 용산
+                                </p>
+                                <p>
+                                    6월 26일(목) ~ 10월 09일(목)
+                                </p>
+                            </div>
+                            <img src="./image/dessert1.png" alt="">
+                        </div>
+                        <div class="card d2">
+                            <div class="card_text_box">
+                                <h3>
+                                    소울로스터리
+                                </h3>
+                                <p>
+                                    현대백화점 더현대 서울
+                                </p>
+                                <p>
+                                    7월 11일(금) ~ 7월 17일(목)
+                                </p>
+                            </div>
+                            <img src="./image/dessert2.png" alt="">
+                        </div>
+                        <div class="card d3">
+                            <div class="card_text_box">
+                                <h3>
+                                    화전리 제빵소
+                                </h3>
+                                <p>
+                                    롯데백화점 인천
+                                </p>
+                                <p>
+                                    7월 5일(토) ~ 7월 10일(수)
+                                </p>
+                            </div>
+                            <img src="./image/dessert3.png" alt="">
+                        </div>
+                        <div class="card d4">
+                            <div class="card_text_box">
+                                <h3>
+                                    츄플러스
+                                </h3>
+                                <p>
+                                    타임스퀘어 영등포
+                                </p>
+                                <p>
+                                    5월 17일(금) ~ 5월 23일(목)
+                                </p>
+                            </div>
+                            <img src="./image/dessert4.png" alt="">
+                        </div>
+                        <div class="card d5">
+                            <div class="card_text_box">
+                                <h3>
+                                    달라또
+                                </h3>
+                                <p>
+                                    잠실 롯데월드몰
+                                </p>
+                                <p>
+                                    3월 15일(토) ~ 3월 27일(목)
+                                </p>
+                            </div>
+                            <img src="./image/dessert5.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="content_box" id="experience">
+                    <h2>Experience</h2>
+                    <div class="scroll_wrapper">
+                        <div class="card e1">
+                            <div class="card_text_box">
+                                <h3>
+                                    AFTER BATH HOUSE 센녹
+                                </h3>
+                                <p>
+                                    올리브영 N 성수
+                                </p>
+                                <p>
+                                    7월 17일(목) ~ 7월 27일(일)
+                                </p>
+                            </div>
+                            <img src="./image/experience1.png" alt="">
+                        </div>
+                        <div class="card e5">
+                            <div class="card_text_box">
+                                <h3>
+                                    앨리스 달튼 브라운 회고전
+                                </h3>
+                                <p>
+                                    현대백화점 더현대 서울
+                                </p>
+                                <p>
+                                    6월 13일(금) ~ 9월 20일(토)
+                                </p>
+                            </div>
+                            <img src="./image/experience5.png" alt="">
+                        </div>
+                        <div class="card e2">
+                            <div class="card_text_box">
+                                <h3>
+                                    돈키호테 X GS25 팝업
+                                </h3>
+                                <p>
+                                    현대백화점 더현대 서울
+                                </p>
+                                <p>
+                                    7월 8일(화) ~ 8월 1일(금)
+                                </p>
+                            </div>
+                            <img src="./image/experience2.png" alt="">
+                        </div>
+                        <div class="card e3">
+                            <div class="card_text_box">
+                                <h3>
+                                    Torriden Toriwave Club
+                                </h3>
+                                <p>
+                                    서울 성동구 성수일로 7가길 17
+                                </p>
+                                <p>
+                                    7월 1일(화) ~ 9월 29일(월)
+                                </p>
+                            </div>
+                            <img src="./image/experience3.png" alt="">
+                        </div>
+                        <div class="card e4">
+                            <div class="card_text_box">
+                                <h3>
+                                    ALT.1 전시
+                                </h3>
+                                <p>
+                                    현대백화점 더현대 서울
+                                </p>
+                                <p>
+                                    7월 1일(화) ~ 9월 29일(월)
+                                </p>
+                            </div>
+                            <img src="./image/experience4.png" alt="">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
     <script>
-        /*
-        1. input_text 가져오기
-        2. search_icon 가져오기
-        3. search_icon 을 비활성화 해놓기 disabled 속성을 활용
-        4. 시각적으로 비활성화 된 것이 보이게 search_icon의 스타일을 opacity 0.5로 변경해줌
-        */
+        const tabButtons = document.querySelectorAll(".tab-button");
+        const contentAreas = document.querySelectorAll(".content_box");
 
-        const inputText = document.getElementById("input_text");
-        const btn = document.querySelector(".search_icon");
-        btn.disabled = true; 
-        // 처음엔 비활성화
-        // disabled: 따로 만든 변수 X -> html요소의 속성(button / input 등)에 기본적으로 존재하는 속성
-        btn.style.opacity = 0.3
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tab = button.getAttribute('data-tab');
 
-        inputText.addEventListener("input", () => {
-            // addEventListener("input"): 글자를 입력 / 글자를 지우거나 복사하거나 붙여넣기 하거나 자동완성하거나 등등
-            if (inputText.value.trim() !== "") {
-                // input에 어떤 값이 들어와야 작동함
-                // trim: " " <- 눈에 보이진 않지만 공백이 존재함(값은 있다라는 것)
-                // trim: 입력한 문자의 공백을 제거 "  강남  " -> "강남"
-                // 즉 정말 텍스트가 존재하는지 확인하는 메소드
-                // inputText.value: 사용자가 입력한 값
-                // 사용자가 입력한 값이 ""과 달라서 비어있지 않다면! 아래 코드를 실행하겠다
-                btn.disabled = false;
-                // input에 어떤 값이 들어왔ㅅ다면 disbled을 끈다
-                btn.style.opacity = 1;
-            } else {
-                // 만약 사용자가 입력한 값이 빈값이라면
-                btn.disabled = true; 
-                btn.style.opacity = 0.3;
-                // 그대로 비활성화 유지
-            }
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                contentAreas.forEach(area => area.classList.remove('active'));
+
+                button.classList.add('active');
+                document.getElementById(tab).classList.add('active');
+            })
+        })
+        const scrollWrappers = document.querySelectorAll(".scroll_wrapper");
+
+        scrollWrappers.forEach(wrapper => {
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            wrapper.addEventListener("mousedown", (e) => {
+                isDown = true;
+                wrapper.classList.add("active");
+                startX = e.pageX - wrapper.offsetLeft;
+                scrollLeft = wrapper.scrollLeft;
+            });
+
+            wrapper.addEventListener("mouseleave", () => {
+                isDown = false;
+                wrapper.classList.remove("active");
+            });
+
+            wrapper.addEventListener("mouseup", () => {
+                isDown = false;
+                wrapper.classList.remove("active");
+            });
+
+            wrapper.addEventListener("mousemove", (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - wrapper.offsetLeft;
+                const walk = (x - startX) * 1; // 드래그 속도 배율 (1 = 기본)
+                wrapper.scrollLeft = scrollLeft - walk;
+            });
         });
 
-        // 언제 검색이 되어야할까?
-        // 1. 검색버튼을 클릭했을 때 사용자가 inputText에 입력한 value값이 비어있지 않다면 input() 실행행
-       btn.addEventListener("click", () => {
-        if (inputText.value.trim() !== "") {
-            input();
-        }
-       });
+        document.addEventListener("DOMContentLoaded", () => {
+            const target = document.querySelector(".content_box");
 
-       window.addEventListener("keyup", (e) => {
-        if (e.key == "Enter" && document.activeElement == inputText && inputText.value.trim() !== "") {
-            // e.key == "Enter": 이벤트가 발생한 키가 Enter이고
-            // activeElement: 현재 사용자가 클릭했거나 커서가 깜빡이는 html 요소를 가리킴
-            input();
-        }
-       });
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("show");
+                            // 한 번만 실행되길 원한다면 아래 주석 해제
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                },
+                {
+                    threshold: 0.3 // 30% 보일 때 실행
+                }
+            );
+
+            observer.observe(target);
+        });
 
 
-        function input() {
-            const query = encodeURIComponent("스타벅스 " + inputText.value.trim());
-            // encodeURIComponent: 주소창에 특수문자나 한글을 그대로 입력할 수 없기 때문에 웹 주소에 맞게 인코딩 해주는 메소드
-            window.open("https://www.google.co.kr/maps/search/" + query + "/data=!3m1!4b1");
-        }
     </script>
 </body>
 
