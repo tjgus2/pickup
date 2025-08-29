@@ -6,464 +6,176 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>스타벅스 지점검색</title>
     <style>
-        .no {
-            height: 200vh;
-        }
-        .recommend_container {
-            background-image: url(../image/recommend.svg);
-            width: 100%;
-            height: 100%;
-            background-position: 50%;
-            background-size: cover;
-            overflow: hidden;
-        }
-
-        .recommend_main_content {
-            overflow: hidden;
-        }
-
-        .recommend_content {
-            padding: 150px 0 0 100px;
+        .top_container {
+            width: 1200px;
+            height: 100vh;
+            margin: 120px auto;
             color: #fff;
-            display: flex;
-            gap: 80px;
-            width: 100%;
-        }
-
-        .recommend_side_content {
-            display: flex;
-            flex-direction: column;
-            gap: 86px;
-            align-items: flex-start;
+            padding: 0 16px;
             font-family: 'NanumSquareNeo', sans-serif;
-        }
-
-        .tab-button {
-            width: 400px;
-            height: 80px;
-            padding: 24px 16px;
-            font-size: 24px;
-            font-weight: 400;
-            color: white;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-        }
-
-        .tab-button.active {
-            background: rgba(255, 255, 255, 0.3);
-            border: 1px solid #fff;
-        }
-
-        .content_box {
-            display: none;
-            flex-direction: column;
-            gap: 60px;
-            overflow: hidden;
             word-break: keep-all;
         }
 
-        .content_box.active {
-            display: flex;
-        }
-
-        .content_box>h2 {
+        .top_container>h2 {
             font-size: 64px;
-            font-weight: 600;
+            font-weight: 800;
+            margin-bottom: 32px;
+            color: #000;
+            font-family: "Crimson Text", serif;
         }
 
-        .scroll_wrapper {
-            overflow-x: scroll;
-            display: flex;
-            align-items: center;
-            gap: 32px;
-            width: 78%;
-            padding-bottom: 36px;
-            font-family: 'NanumSquareNeo', sans-serif;
-            cursor: grab;
-            /* 기본 커서 */
-        }
-
-        .scroll_wrapper:active {
-            cursor: grabbing;
-            /* 드래그 중 커서 */
-        }
-
-
-        .scroll_wrapper::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .scroll_wrapper::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 10px;
-        }
-
-        .scroll_wrapper::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-
-        .scroll_wrapper::-webkit-scrollbar-track {
-            background: #e0e0e0;
-            border-radius: 10px;
-        }
-
-        .card {
-            width: 330px;
-            height: 443px;
-            border-radius: 50px;
-            background: rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-            padding: 12px 24px;
-            color: #fff;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-        }
-
-        .card_text_box>h3 {
-            margin-left: 16px;
-            margin-bottom: 24px;
-            font-size: 22px;
-            font-weight: 500;
-        }
-
-        .card_text_box>p {
-            margin-left: 16px;
-        }
-
-        .card_text_box>p:first-of-type {
-            margin-bottom: 10px;
-        }
-
-        .content_box {
-            opacity: 0;
+        .top_full_content {
+            opacity: 1;
             transform: translateY(40px);
             transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
-        .content_box.show {
-            opacity: 1;
-            transform: translateY(0);
+
+
+        .top_content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .first_box {
+            background: url(../image/top1.png);
+            width: 540px;
+            height: 500px;
+            background-size: cover;
+            padding: 24px;
+            box-sizing: border-box;
+        }
+
+        .second_box {
+            background: url(../image/top2.png);
+            background-size: cover;
+            padding: 16px;
+            box-sizing: border-box;
+        }
+
+        .third_box {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .third_top_box {
+            background: url(../image/top3.png);
+            border-radius: 0 80px 0 0;
+            background-size: cover;
+            height: 200px;
+            padding: 16px;
+            box-sizing: border-box;
+        }
+
+        .third_bottom_box {
+            background: url(../image/top4.png);
+            background-size: cover;
+            height: 280px;
+            padding: 16px;
+            box-sizing: border-box;
+        }
+
+        .fifth_box {
+            background: url(../image/top5.png);
+            border-radius: 0 0 0 80px;
+            background-size: cover;
+            background-position: center;
+            height: 220px;
+            padding: 24px;
+            box-sizing: border-box;
+        }
+
+        .big_common_h3 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .common_h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .big_common_p {
+            font-size: 20px;
+            line-height: 22px;
+        }
+
+        .top_content>div,
+        .top_content>div>div,
+        .bottom_content>div {
+            background-repeat: no-repeat;
+            background-position: center;
+            transition: all 1.2s ease;
+        }
+
+        /* hover 시 다른 박스 어둡게 */
+        .top_full_content:hover>.top_content>div:not(:hover),
+        .top_full_content:hover>.top_content>div>div:not(:hover),
+        .top_full_content:hover>.bottom_content>div:not(:hover) {
+            filter: brightness(0.7);
         }
     </style>
 </head>
 
 <body>
-    <section class="no">
-        dlkjflskjdflksdjlfkjdslkf
-    </section>
-    <section class="recommend_container">
-        <div class="recommend_content">
-            <div class="recommend_side_content">
-                <button class="tab-button active" data-tab="fashion">Fashion</button>
-                <button class="tab-button" data-tab="dessert">Dessert</button>
-                <button class="tab-button" data-tab="experience">Experience</button>
+    <section class="top_container">
+        <h2>Top Picks</h2>
+        <div class="top_full_content">
+            <div class="top_content">
+                <div class="first_box">
+                    <h3 class="big_common_h3">
+                        한강뷰 속 와인 한 잔, 핑크문 팝업
+                    </h3>
+                    <p class="big_common_p">
+                        성수에서 펼쳐지는 와인&뷰티 감성 라운지
+                    </p>
+                </div>
+                <div class="second_box">
+                    <h3 class="common_h3">
+                        팝업에서 만나는 일본 골목식당
+                    </h3>
+                    <p class="common_p">
+                        연남동 작은 거리, 오사카가 되다
+                    </p>
+                </div>
+                <div class="third_box">
+                    <div class="third_top_box">
+                        <h3 class="common_h3">
+                            파도 위를 걷는 듯, 서핑 팝업
+                        </h3>
+                        <p class="common_p">
+                            청담 한복판에 떠오른 서퍼들의 아지트
+                        </p>
+
+                    </div>
+                    <div class="third_bottom_box">
+                        <h3 class="common_h3">
+                            지구를 위한 한 끼, 푸드 팝업
+                        </h3>
+                        <p class="common_p">
+                            제로웨이스트 푸드 브랜드들의 한정 전시
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="recommend_main_content">
-                <div class="content_box active" id="fashion">
-                    <h2>Fashion</h2>
-                    <div class="scroll_wrapper">
-                        <div class="card f1">
-                            <div class="card_text_box">
-                                <h3>
-                                    AVANDRESS
-                                </h3>
-                                <p>
-                                    롯데백화점 광주점 4층
-                                </p>
-                                <p>
-                                    7월 15일(화) ~ 7월 31일(목)
-                                </p>
-                            </div>
-                            <img src="./image/fashion1.png" alt="">
-                        </div>
-                        <div class="card f2">
-                            <div class="card_text_box">
-                                <h3>
-                                    RAWROW
-                                </h3>
-                                <p>
-                                    롯데백화점 에비뉴엘 잠실점
-                                </p>
-                                <p>
-                                    7월 11일(금) ~ 7월 31일(목)
-                                </p>
-                            </div>
-                            <img src="./image/fashion2.png" alt="">
-                        </div>
-                        <div class="card f3">
-                            <div class="card_text_box">
-                                <h3>
-                                    리얼리굿스윔 x RGS 팝업스토어
-                                </h3>
-                                <p>
-                                    서울 성동구 성수동 LCDC 3층 A3-01호 광주점 4층
-                                </p>
-                                <p>
-                                    7월 19일(토) ~ 7월 27일(일)
-                                </p>
-                            </div>
-                            <img src="./image/fashion3.png" alt="">
-                        </div>
-                        <div class="card f4">
-                            <div class="card_text_box">
-                                <h3>
-                                    EMIS PET
-                                </h3>
-                                <p>
-                                    신세계백화점 본점
-                                </p>
-                                <p>
-                                    8월 1일(금) ~ 8월 8일(금)
-                                </p>
-                            </div>
-                            <img src="./image/fashion4.png" alt="">
-                        </div>
-                        <div class="card f5">
-                            <div class="card_text_box">
-                                <h3>
-                                    HUNTER
-                                </h3>
-                                <p>
-                                    롯데백화점 인천점
-                                </p>
-                                <p>
-                                    7월 19일(토) ~ 8월 1일(금)
-                                </p>
-                            </div>
-                            <img src="./image/fashion5.png" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="content_box" id="dessert">
-                    <h2>Dessert</h2>
-                    <div class="scroll_wrapper">
-                        <div class="card d1">
-                            <div class="card_text_box">
-                                <h3>
-                                    코코로카라
-                                </h3>
-                                <p>
-                                    아이파크몰 용산
-                                </p>
-                                <p>
-                                    6월 26일(목) ~ 10월 09일(목)
-                                </p>
-                            </div>
-                            <img src="./image/dessert1.png" alt="">
-                        </div>
-                        <div class="card d2">
-                            <div class="card_text_box">
-                                <h3>
-                                    소울로스터리
-                                </h3>
-                                <p>
-                                    현대백화점 더현대 서울
-                                </p>
-                                <p>
-                                    7월 11일(금) ~ 7월 17일(목)
-                                </p>
-                            </div>
-                            <img src="./image/dessert2.png" alt="">
-                        </div>
-                        <div class="card d3">
-                            <div class="card_text_box">
-                                <h3>
-                                    화전리 제빵소
-                                </h3>
-                                <p>
-                                    롯데백화점 인천
-                                </p>
-                                <p>
-                                    7월 5일(토) ~ 7월 10일(수)
-                                </p>
-                            </div>
-                            <img src="./image/dessert3.png" alt="">
-                        </div>
-                        <div class="card d4">
-                            <div class="card_text_box">
-                                <h3>
-                                    츄플러스
-                                </h3>
-                                <p>
-                                    타임스퀘어 영등포
-                                </p>
-                                <p>
-                                    5월 17일(금) ~ 5월 23일(목)
-                                </p>
-                            </div>
-                            <img src="./image/dessert4.png" alt="">
-                        </div>
-                        <div class="card d5">
-                            <div class="card_text_box">
-                                <h3>
-                                    달라또
-                                </h3>
-                                <p>
-                                    잠실 롯데월드몰
-                                </p>
-                                <p>
-                                    3월 15일(토) ~ 3월 27일(목)
-                                </p>
-                            </div>
-                            <img src="./image/dessert5.png" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="content_box" id="experience">
-                    <h2>Experience</h2>
-                    <div class="scroll_wrapper">
-                        <div class="card e1">
-                            <div class="card_text_box">
-                                <h3>
-                                    AFTER BATH HOUSE 센녹
-                                </h3>
-                                <p>
-                                    올리브영 N 성수
-                                </p>
-                                <p>
-                                    7월 17일(목) ~ 7월 27일(일)
-                                </p>
-                            </div>
-                            <img src="./image/experience1.png" alt="">
-                        </div>
-                        <div class="card e5">
-                            <div class="card_text_box">
-                                <h3>
-                                    앨리스 달튼 브라운 회고전
-                                </h3>
-                                <p>
-                                    현대백화점 더현대 서울
-                                </p>
-                                <p>
-                                    6월 13일(금) ~ 9월 20일(토)
-                                </p>
-                            </div>
-                            <img src="./image/experience5.png" alt="">
-                        </div>
-                        <div class="card e2">
-                            <div class="card_text_box">
-                                <h3>
-                                    돈키호테 X GS25 팝업
-                                </h3>
-                                <p>
-                                    현대백화점 더현대 서울
-                                </p>
-                                <p>
-                                    7월 8일(화) ~ 8월 1일(금)
-                                </p>
-                            </div>
-                            <img src="./image/experience2.png" alt="">
-                        </div>
-                        <div class="card e3">
-                            <div class="card_text_box">
-                                <h3>
-                                    Torriden Toriwave Club
-                                </h3>
-                                <p>
-                                    서울 성동구 성수일로 7가길 17
-                                </p>
-                                <p>
-                                    7월 1일(화) ~ 9월 29일(월)
-                                </p>
-                            </div>
-                            <img src="./image/experience3.png" alt="">
-                        </div>
-                        <div class="card e4">
-                            <div class="card_text_box">
-                                <h3>
-                                    ALT.1 전시
-                                </h3>
-                                <p>
-                                    현대백화점 더현대 서울
-                                </p>
-                                <p>
-                                    7월 1일(화) ~ 9월 29일(월)
-                                </p>
-                            </div>
-                            <img src="./image/experience4.png" alt="">
-                        </div>
-                    </div>
+            <div class="bottom_content">
+                <div class="fifth_box">
+                    <h3 class="big_common_h3">
+                        향기로 기록하는 나만의 취향
+                    </h3>
+                    <p class="big_common_p">
+                        니치향수 브랜드의 체험형 전시 팝업
+                    </p>
+
                 </div>
             </div>
         </div>
     </section>
-    <script>
-        const tabButtons = document.querySelectorAll(".tab-button");
-        const contentAreas = document.querySelectorAll(".content_box");
 
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const tab = button.getAttribute('data-tab');
-
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                contentAreas.forEach(area => area.classList.remove('active'));
-
-                button.classList.add('active');
-                document.getElementById(tab).classList.add('active');
-            })
-        })
-        const scrollWrappers = document.querySelectorAll(".scroll_wrapper");
-
-        scrollWrappers.forEach(wrapper => {
-            let isDown = false;
-            let startX;
-            let scrollLeft;
-
-            wrapper.addEventListener("mousedown", (e) => {
-                isDown = true;
-                wrapper.classList.add("active");
-                startX = e.pageX - wrapper.offsetLeft;
-                scrollLeft = wrapper.scrollLeft;
-            });
-
-            wrapper.addEventListener("mouseleave", () => {
-                isDown = false;
-                wrapper.classList.remove("active");
-            });
-
-            wrapper.addEventListener("mouseup", () => {
-                isDown = false;
-                wrapper.classList.remove("active");
-            });
-
-            wrapper.addEventListener("mousemove", (e) => {
-                if (!isDown) return;
-                e.preventDefault();
-                const x = e.pageX - wrapper.offsetLeft;
-                const walk = (x - startX) * 1; // 드래그 속도 배율 (1 = 기본)
-                wrapper.scrollLeft = scrollLeft - walk;
-            });
-        });
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const target = document.querySelector(".content_box");
-
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add("show");
-                            // 한 번만 실행되길 원한다면 아래 주석 해제
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                },
-                {
-                    threshold: 0.3 // 30% 보일 때 실행
-                }
-            );
-
-            observer.observe(target);
-        });
-
-
-    </script>
 </body>
 
 </html>
