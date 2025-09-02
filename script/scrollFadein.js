@@ -11,14 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (ratio >= 0.1) {
                     entry.target.classList.add("show");
                 } 
-
-                else if (ratio <= 0.9) {
+                else {
                     entry.target.classList.remove("show");
                 }
             });
         },
         {
-            threshold: [0.1, 0.9] 
+            threshold: [0.1] 
         }
     );
 

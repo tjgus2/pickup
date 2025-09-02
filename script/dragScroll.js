@@ -26,7 +26,7 @@ scrollWrappers.forEach(wrapper => {
         if (!isDown) return;
         e.preventDefault();
         const x = e.pageX - wrapper.offsetLeft;
-        const walk = (x - startX) * 1; // 드래그 속도 배율 (1 = 기본)
+        const walk = (x - startX) * 1;
         wrapper.scrollLeft = scrollLeft - walk;
     });
 });
