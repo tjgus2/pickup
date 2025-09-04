@@ -8,16 +8,15 @@ document.addEventListener("DOMContentLoaded", () => {
             entries.forEach(entry => {
                 const ratio = entry.intersectionRatio;
 
-                if (ratio >= 0.1) {
+                if (ratio > 0.01) {  
                     entry.target.classList.add("show");
-                } 
-                else {
+                } else {  
                     entry.target.classList.remove("show");
                 }
             });
         },
         {
-            threshold: [0.1] 
+            threshold: [0.01]
         }
     );
 
