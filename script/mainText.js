@@ -1,45 +1,24 @@
-const line1Word = ["instantly,"];
-const line2Word = ["smartly,"];
-const line3Word = ["effortlessly,"];
-const line4Word = ["Find popups"];
-
-function animateLine(lineId, words, delayOffset) {
-    const line = document.getElementById(lineId);
-    words.forEach((word, index) => {
-        const span = document.createElement('span');
-        span.className = 'word';
-        span.textContent = word;
-        span.style.animationDelay = `${(index + delayOffset) * 0.3}s`;
-        line.appendChild(span);
-    })
-}
-
-function playAnimation() {
-    animateLine('line1', line1Word, 0);
-    animateLine('line2', line2Word, line1Word.length);
-    animateLine('line3', line3Word, line1Word.length + line2Word.length);
-    animateLine('line4', line4Word, line1Word.length + line2Word.length + line3Word.length);
-}
-
-const textContent = document.getElementById("main_text_content");
-function resetAnimation() {
-    document.getElementById('line1').innerHTML = '';
-    document.getElementById('line2').innerHTML = '';
-    document.getElementById('line3').innerHTML = '';
-    document.getElementById('line4').innerHTML = '';
-}
+const mainTextContent = document.querySelector(".main_text_content");
+const mainText = document.querySelectorAll(".text_line");
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if(entry.isIntersecting) {
-            playAnimation();
-        } else  {
-            resetAnimation();
+        if (entry.isIntersecting) {
+            // 요소가 보일 때 실행
+            mainText.forEach(content => {
+                content.classList.add("word");
+            });
+        } else {
+            // 요소가 안 보일 때 실행 (다시 올라가면 초기화)
+            mainText.forEach(content => {
+                content.classList.remove("word");
+            });
         }
-    })
+    });
 }, {
-    threshold: 0.5
-})
+    threshold: 0.1 // 요소가 10% 이상 보이면 트리거
+});
 
-observer.observe(textContent);
+// mainTextContent 요소 관찰 시작
+observer.observe(mainTextContent);
 

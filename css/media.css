@@ -116,7 +116,7 @@
 }
 
 @media (max-width: 1024px) {
-
+    
     /* main 컨테이너 */
     h1>img {
         width: 250px;
@@ -462,6 +462,11 @@
 
 @media (max-width: 500px) {
 
+    /* main 컨테이너 */
+    .main_container {
+        height: auto;
+    }
+    
     /* recommend 컨테이너 */
     .recommend_container {
         height: 100%;
@@ -473,6 +478,8 @@
         height: 250px;
         top: 0;
         gap: 60px;
+        padding-top: 40px;
+        padding-bottom: 40px;
     }
 
     .recommend_content {
